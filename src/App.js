@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./header.js";
 import "./timeline.css";
 import { ReactComponent as WorkIcon } from "./work.svg";
-import { ReactComponent as SchoolIcon } from "./school.svg";
+// import { ReactComponent as SchoolIcon } from "./school.svg";
 
 import timelineElements from "./timelineElements";
 
@@ -16,7 +16,7 @@ import Footer from "./Footer";
 
 function App() {
   let workIconStyles = { background: "#06D6A0" };
-  let schoolIconStyles = { background: "#06D6A0" };
+  // let schoolIconStyles = { background: "#06D6A0" };
 
   return (
     <div className="main-cont">
@@ -24,38 +24,23 @@ function App() {
       <div className="timeline">
         <h1 className="title">Timeline</h1>
         <VerticalTimeline>
-          {timelineElements.map((element) => {
-            let isWorkIcon = element.icon === "work";
-            let showButton =
-              element.buttonText !== undefined &&
-              element.buttonText !== null &&
-              element.buttonText !== "";
-
+        {timelineElements.sort((a,b)=>new Date(a["Timeline Date"]).getTime()-new Date(b["Timeline Date"]).getTime()).map((element) => {
             return (
               <VerticalTimelineElement
+              className="timeline-date"
                 key={element.key}
-                date={element.date}
+                contentStyle={{ background: "radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%)", color: '#000' }}
+                contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
+                date={element["Timeline Date"]}
                 dateClassName="date"
-                iconStyle={isWorkIcon ? workIconStyles : schoolIconStyles}
-                icon={isWorkIcon ? <WorkIcon /> : <SchoolIcon />}
+                iconStyle={workIconStyles}
+                icon={<WorkIcon />}
               >
                 <h3 className="vertical-timeline-element-title">
-                  {element.title}
+                  {element["Prediction Heading"]}
                 </h3>
-                <h5 className="vertical-timeline-element-subtitle">
-                  {element.location}
-                </h5>
-                <p id="description">{element.description}</p>
-                {showButton && (
-                  <a
-                    className={`button ${
-                      isWorkIcon ? "workButton" : "schoolButton"
-                    }`}
-                    href="/"
-                  >
-                    {element.buttonText}
-                  </a>
-                )}
+                <p id="description">{element.text}</p>
+                <p className="vertical-timeline-element-subtitle">{element["Prediction Date "]}</p>
               </VerticalTimelineElement>
             );
           })}

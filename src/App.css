@@ -1,3 +1,28 @@
 .main-cont{
     width: 100vw;
 }
+
+.vertical-timeline-element-subtitle{
+    /* display: inline; */
+    box-sizing: border-box;
+    /* border: 5px solid red; */
+    border-radius: 5px;
+   /* background-color: rgba(0, 225, 255, 0.774); */
+   /* background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%); */
+
+}
+.timeline-date{
+    /* color: rgba(0, 102, 255, 0.473); */
+    background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%);
+}
+  .vertical-timeline-element-subtitle{
+    color:rgb(226, 12, 233);
+  }
+.vertical-timeline-element-title{
+    font-weight: 700;
+}
+#description{
+    /* color: aquamarine; */
+    /* font-weight: 600; */
+    font-size: 15px;
+}

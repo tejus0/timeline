@@ -72,6 +72,6 @@ console.log(data); */
   },
 ];
  */
-import { data } from "./data";
+import data from "./data-json.json";
 let timelineElements = data;
 export default timelineElements;
